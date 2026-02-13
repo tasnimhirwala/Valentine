@@ -6,72 +6,61 @@
 <title>For My Love ❤️</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <!-- PASSWORD SCREEN -->
 <div id="passwordScreen">
   <h2>Enter Our Special Date 💕</h2>
   <input type="password" id="passwordInput" placeholder="DDMMYYYY">
-  <button onclick="checkPassword()">Enter</button>
+  <button id="enterBtn">Enter</button>
 </div>
 
 <!-- MAIN CONTENT -->
 <div id="mainContent">
-
   <h1>Open When... 💌</h1>
 
   <div class="container">
-
-    <div class="card" onclick="openPopup('sad')">
+    <div class="card" data-type="sad">
       <span>💔</span>
       <h3>When you're sad</h3>
     </div>
 
-    <div class="card" onclick="openPopup('sleepMotivation')">
+    <div class="card" data-type="sleepMotivation">
       <span>🔥</span>
       <h3>Peaceful sleep & motivation</h3>
     </div>
 
-    <div class="card" onclick="openPopup('love')">
+    <div class="card" data-type="love">
       <span>❤️</span>
       <h3>When you doubt my love</h3>
     </div>
-
   </div>
 
-  <!-- FINAL BUTTON -->
   <div class="finalBtnContainer">
     <button id="finalBtn" class="finalBtn">
       If you saw everything… click here ❤️
     </button>
   </div>
-
 </div>
 
 <!-- VALENTINE SCREEN -->
 <div id="valentineScreen">
-  <div class="valentineContent">
-    <h1>Happy Valentine’s Day My Love ❤️</h1>
-    <h2>Will you be my Valentine forever? 💍</h2>
+  <h1>Happy Valentine’s Day My Love ❤️</h1>
+  <h2>Will you be my Valentine forever? 💍</h2>
 
-    <div class="valentineButtons">
-      <button class="yesBtn" onclick="sayYes()">Say Yes 💖</button>
-      <button class="noBtn" id="noBtn">Say No 😡</button>
-    </div>
-    <button class="backBtn" id="backBtn">⬅ Go Back</button>
+  <button id="yesBtn" class="yesBtn">Say Yes 💖</button>
+  <button id="noBtn" class="noBtn">Say No 😡</button>
+  <button id="backBtn" class="backBtn">⬅ Go Back</button>
 
-    <div id="emojiRain"></div>
-  </div>
+  <div id="emojiRain"></div>
 </div>
 
 <!-- POPUP -->
 <div class="popup" id="popupBox">
   <div id="popupContent"></div>
-  <button class="close" onclick="closePopup()">Close 💖</button>
+  <button id="closePopup">Close 💖</button>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
