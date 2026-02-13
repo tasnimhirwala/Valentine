@@ -60,7 +60,10 @@ function openPopup(type) {
     ${media}
   `;
 
-  popup.style.display = "block";
+  popup.style.display = "flex";
+popup.style.flexDirection = "column";
+popup.style.alignItems = "center";
+
 }
 
 /* ================= CLOSE POPUP ================= */
