@@ -1,7 +1,7 @@
-const correctPassword = "041918"; // change if needed
+const correctPassword = "041918";
 let heartsStarted = false;
 
-// PASSWORD
+/* ================= PASSWORD ================= */
 function checkPassword() {
   const input = document.getElementById("passwordInput").value;
 
@@ -13,13 +13,12 @@ function checkPassword() {
       startHearts();
       heartsStarted = true;
     }
-
   } else {
     alert("Wrong date 😢 Try again!");
   }
 }
 
-// POPUP
+/* ================= OPEN POPUP ================= */
 function openPopup(type) {
   const popup = document.getElementById("popupBox");
   const content = document.getElementById("popupContent");
@@ -45,36 +44,30 @@ function openPopup(type) {
 
   content.innerHTML = `
     <p style="font-size:18px; margin-bottom:15px;">${message}</p>
-    ${video ? `
-      <video controls autoplay>
+    ${video ? `<video controls autoplay>
         <source src="${video}" type="video/mp4">
-      </video>
-    ` : ""}
-    ${audio ? `
-      <audio controls autoplay>
+      </video>` : ""}
+    ${audio ? `<audio controls autoplay>
         <source src="${audio}" type="audio/mpeg">
-      </audio>
-    ` : ""}
+      </audio>` : ""}
   `;
 
   popup.classList.add("active");
   document.body.style.overflow = "hidden";
 }
 
-// CLOSE POPUP + STOP MEDIA
+/* ================= CLOSE POPUP ================= */
 function closePopup() {
   const popup = document.getElementById("popupBox");
 
-  const videos = popup.querySelectorAll("video");
-  videos.forEach(video => {
-    video.pause();
-    video.currentTime = 0;
+  popup.querySelectorAll("video").forEach(v => {
+    v.pause();
+    v.currentTime = 0;
   });
 
-  const audios = popup.querySelectorAll("audio");
-  audios.forEach(audio => {
-    audio.pause();
-    audio.currentTime = 0;
+  popup.querySelectorAll("audio").forEach(a => {
+    a.pause();
+    a.currentTime = 0;
   });
 
   popup.classList.remove("active");
@@ -82,7 +75,7 @@ function closePopup() {
   document.getElementById("popupContent").innerHTML = "";
 }
 
-// HEARTS AFTER PASSWORD
+/* ================= FLOATING HEARTS ================= */
 function startHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
@@ -95,9 +88,99 @@ function startHearts() {
 
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-      heart.remove();
-    }, 7000);
-
+    setTimeout(() => heart.remove(), 7000);
   }, 400);
+}
+
+/* ================= OPEN VALENTINE SCREEN ================= */
+function openValentine() {
+  document.getElementById("mainContent").style.display = "none";
+  document.getElementById("valentineScreen").style.display = "flex";
+}
+
+/* ================= YES BUTTON ================= */
+function sayYes() {
+  startCuteEmojis();
+  showHurrayPopup();
+}
+
+function showHurrayPopup() {
+  const popup = document.createElement("div");
+
+  popup.innerHTML = "HURRAYYY!!! 🎉❤️<br>You are mine forever 😌💍";
+  popup.style.position = "fixed";
+  popup.style.top = "50%";
+  popup.style.left = "50%";
+  popup.style.transform = "translate(-50%, -50%)";
+  popup.style.background = "#ff2e63";
+  popup.style.color = "white";
+  popup.style.padding = "30px 40px";
+  popup.style.borderRadius = "20px";
+  popup.style.fontSize = "20px";
+  popup.style.textAlign = "center";
+  popup.style.zIndex = "10000";
+  popup.style.boxShadow = "0 20px 50px rgba(0,0,0,0.4)";
+
+  document.body.appendChild(popup);
+
+  setTimeout(() => popup.remove(), 3000);
+}
+
+/* ================= NO BUTTON (DESKTOP + MOBILE) ================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const noBtn = document.getElementById("noBtn");
+
+  if (!noBtn) return;
+
+  function triggerRun(e) {
+    e.preventDefault();
+    moveNoButton(noBtn);
+    showAngryEmoji(noBtn);
+  }
+
+  noBtn.addEventListener("mouseenter", triggerRun);  // desktop
+  noBtn.addEventListener("touchstart", triggerRun);  // mobile
+  noBtn.addEventListener("click", triggerRun);       // extra safety
+});
+
+function moveNoButton(btn) {
+  const x = Math.random() * (window.innerWidth - 150);
+  const y = Math.random() * (window.innerHeight - 100);
+
+  btn.style.position = "fixed";
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+
+function showAngryEmoji(btn) {
+  const angry = document.createElement("div");
+  angry.innerHTML = "😡";
+  angry.style.position = "fixed";
+  angry.style.left = btn.style.left;
+  angry.style.top = btn.style.top;
+  angry.style.fontSize = "30px";
+  angry.style.zIndex = "9999";
+
+  document.body.appendChild(angry);
+
+  setTimeout(() => angry.remove(), 800);
+}
+
+/* ================= CUTE EMOJI RAIN ================= */
+function startCuteEmojis() {
+  const container = document.getElementById("emojiRain");
+  if (!container) return;
+
+  setInterval(() => {
+    const emoji = document.createElement("div");
+    emoji.classList.add("emoji");
+    emoji.innerHTML = "💖";
+
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.animationDuration = (2 + Math.random() * 2) + "s";
+
+    container.appendChild(emoji);
+
+    setTimeout(() => emoji.remove(), 3000);
+  }, 200);
 }

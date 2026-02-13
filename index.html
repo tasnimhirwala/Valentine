@@ -2,19 +2,20 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Love ❤️</title>
-  <link rel="stylesheet" href="style.css">
+<title>For My Love ❤️</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- PASSWORD SCREEN -->
 <div id="passwordScreen">
   <h2>Enter Our Special Date 💕</h2>
   <input type="password" id="passwordInput" placeholder="DDMMYYYY">
   <button onclick="checkPassword()">Enter</button>
 </div>
 
-<!-- MAIN CONTENT (HIDDEN FIRST) -->
+<!-- MAIN CONTENT -->
 <div id="mainContent" style="display: none;">
 
   <h1>Open When... 💌</h1>
@@ -38,8 +39,27 @@
 
   </div>
 
+  <!-- FINAL BUTTON -->
+  <div style="margin-top: 60px;">
+    <button onclick="openValentine()" class="finalBtn">
+      If you saw everything… click here ❤️
+    </button>
+  </div>
+
 </div>
 
+<!-- VALENTINE SCREEN -->
+<div id="valentineScreen" style="display: none;">
+  <div class="valentineContent">
+    <h1>Happy Valentine’s Day My Love ❤️</h1>
+    <h2>Will you be my Valentine forever? 💍</h2>
+    <button class="yesBtn" onclick="sayYes()">Say Yes 💖</button>
+    <button class="noBtn" id="noBtn">Say No 😡</button>
+<div id="emojiRain"></div>  
+  </div>
+</div>
+
+<!-- POPUP -->
 <div class="popup" id="popupBox">
   <div id="popupContent"></div>
   <button class="close" onclick="closePopup()">Close 💖</button>
@@ -49,4 +69,3 @@
 
 </body>
 </html>
-    
