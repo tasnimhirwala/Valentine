@@ -105,10 +105,13 @@ function sayYes() {
 }
 
 function showHurrayPopup() {
-  const popup = document.createElement("div");
+  const valentineScreen = document.getElementById("valentineScreen");
 
+  const popup = document.createElement("div");
+  popup.id = "hurrayPopup";
   popup.innerHTML = "HURRAYYY!!! 🎉❤️<br>You are mine forever 😌💍";
-  popup.style.position = "fixed";
+
+  popup.style.position = "absolute";
   popup.style.top = "50%";
   popup.style.left = "50%";
   popup.style.transform = "translate(-50%, -50%)";
@@ -119,12 +122,12 @@ function showHurrayPopup() {
   popup.style.fontSize = "20px";
   popup.style.textAlign = "center";
   popup.style.zIndex = "10000";
-  popup.style.boxShadow = "0 20px 50px rgba(0,0,0,0.4)";
 
-  document.body.appendChild(popup);
+  valentineScreen.appendChild(popup);
 
   setTimeout(() => popup.remove(), 3000);
 }
+
 
 /* ================= NO BUTTON (DESKTOP + MOBILE) ================= */
 document.addEventListener("DOMContentLoaded", () => {
@@ -186,13 +189,17 @@ function startCuteEmojis() {
 }
 
 /* ================= FINAL BUTTON (MOBILE SAFE) ================= */
-document.addEventListener("click", function (e) {
-  if (e.target && e.target.id === "finalBtn") {
-    openValentine();
-  }
+if (e.target && e.target.id === "backBtn") {
 
-  if (e.target && e.target.id === "backBtn") {
-    document.getElementById("valentineScreen").style.display = "none";
-    document.getElementById("mainContent").style.display = "flex"; // IMPORTANT FIX
-  }
-});
+  // remove emoji rain
+  const emojiContainer = document.getElementById("emojiRain");
+  emojiContainer.innerHTML = "";
+
+  // remove hurray popup if exists
+  const hurray = document.getElementById("hurrayPopup");
+  if (hurray) hurray.remove();
+
+  document.getElementById("valentineScreen").style.display = "none";
+  document.getElementById("mainContent").style.display = "flex";
+}
+
