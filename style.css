@@ -1,176 +1,201 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
-  color: white;
-  background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url("ourphoto.jpg");
-  background-size: cover;
-  background-position: center;
+body{
+  margin:0;
+  font-family:Segoe UI,sans-serif;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("ourphoto.jpg");
+  background-size:cover;
+  background-position:center;
+  color:white;
+  overflow-x:hidden;
 }
 
 /* PASSWORD */
-#passwordScreen {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg,#ff5f7e,#ff2e63);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+#passwordScreen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff5f7e,#ff2e63);
 }
 
-#passwordInput {
-  padding: 14px 20px;
-  border-radius: 40px;
-  border: none;
-  font-size: 18px;
-  text-align: center;
+#passwordInput{
+  padding:12px 20px;
+  border-radius:30px;
+  border:none;
+  font-size:16px;
+  text-align:center;
 }
 
-#enterBtn {
-  margin-top: 15px;
-  padding: 10px 25px;
-  border-radius: 30px;
-  border: none;
-  background: white;
-  color: #ff2e63;
-  cursor: pointer;
+#enterBtn{
+  margin-top:15px;
+  padding:10px 25px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff2e63;
 }
 
 /* MAIN */
-#mainContent {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 20px;
+#mainContent{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  padding:60px 20px;
 }
 
-.container {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
+.container{
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
-.card {
-  width: 240px;
-  height: 180px;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+.card{
+  width:240px;
+  height:170px;
+  background:rgba(255,255,255,0.2);
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
 }
 
-.finalBtnContainer {
-  margin-top: 40px;
-}
-
-.finalBtn {
-  padding: 14px 35px;
-  border-radius: 40px;
-  border: none;
-  background: rgba(255,255,255,0.3);
-  color: white;
-  cursor: pointer;
+.finalBtn{
+  margin-top:40px;
+  padding:12px 30px;
+  border-radius:40px;
+  border:none;
+  background:rgba(255,255,255,0.3);
+  color:white;
 }
 
 /* POPUP */
-.popup {
-  display: none;
-  position: fixed;
+.popup{
+  display:none;
+  position:fixed;
   top:50%;
   left:50%;
-  transform: translate(-50%,-50%);
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 400px;
-  color: black;
+  transform:translate(-50%,-50%);
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  width:90%;
+  max-width:380px;
+  color:black;
+  text-align:center;
 }
+
+/* ================= POPUP MEDIA FIX ================= */
 
 .popup video,
 .popup audio {
   display: block;
-  width: 80%;
-  max-width: 350px;
-  margin: 20px auto 0 auto;
+  margin: 20px auto;
   border-radius: 15px;
 }
 
+/* Desktop */
+.popup video {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.popup audio {
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+
+  .popup {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .popup video {
+    width: 100%;
+    max-height: 55vh;
+    object-fit: contain;
+  }
+
+  .popup audio {
+    width: 100%;
+  }
+
+}
+
+
+#closePopup{
+  margin-top:10px;
+  padding:8px 20px;
+  border-radius:20px;
+  border:none;
+  background:#ff2e63;
+  color:white;
+}
 
 /* VALENTINE */
-#valentineScreen {
-  display: none;
-  position: fixed;
-  inset: 0;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url("ourphoto.jpg");
-  background-size: cover;
+#valentineScreen{
+  display:none;
+  position:fixed;
+  inset:0;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("ourphoto.jpg");
+  background-size:cover;
 }
 
-.yesBtn,
-.noBtn,
-.backBtn {
-  margin-top: 15px;
-  padding: 12px 30px;
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
+.yesBtn,.noBtn,.backBtn{
+  margin-top:15px;
+  padding:10px 25px;
+  border-radius:30px;
+  border:none;
 }
 
-.yesBtn { background:#ff2e63;color:white; }
-.noBtn { background:#333;color:white; }
-.backBtn { background:rgba(255,255,255,0.3);color:white; }
+.yesBtn{background:#ff2e63;color:white;}
+.noBtn{background:#333;color:white;}
+.backBtn{background:rgba(255,255,255,0.3);color:white;}
 
-#emojiRain {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
+#emojiRain{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
 }
 
 .emoji {
   position: fixed;
-  bottom: -20px;
-  font-size: 28px;
-  animation: floatUp 4s linear forwards;
+  top: -30px;
+  font-size: 24px;
+  animation: fallSmooth linear forwards;
+  pointer-events: none;
+  opacity: 0.9;
 }
 
-@keyframes floatUp {
-  0% { transform: translateY(0); opacity:1; }
-  100% { transform: translateY(-120vh); opacity:0; }
+@keyframes fallSmooth {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
 }
 
-/* MOBILE */
+
 @media(max-width:768px){
-  .container{
-    flex-direction: column;
-    align-items: center;
-  }
-  .card{
-    width: 90%;
-  }
-  .popup video,
-  .popup audio{
-    width: 90%;
-    max-width: 300px;
-  }
-  .finalBtn,
-  .yesBtn,
-  .noBtn,
-  .backBtn{
-    width: 85%;
-  }
+  .container{flex-direction:column;}
+  .card{width:90%;}
+  .finalBtn,.yesBtn,.noBtn,.backBtn{width:85%;}
 }

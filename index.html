@@ -8,14 +8,14 @@
 </head>
 <body>
 
-<!-- PASSWORD SCREEN -->
+<!-- PASSWORD -->
 <div id="passwordScreen">
   <h2>Enter Our Special Date 💕</h2>
   <input type="password" id="passwordInput" placeholder="DDMMYYYY">
   <button id="enterBtn">Enter</button>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <div id="mainContent">
   <h1>Open When... 💌</h1>
 
@@ -25,9 +25,9 @@
       <h3>When you're sad</h3>
     </div>
 
-    <div class="card" data-type="sleepMotivation">
+    <div class="card" data-type="sleep">
       <span>🔥</span>
-      <h3>Peaceful sleep & motivation</h3>
+      <h3>Sleep & Motivation</h3>
     </div>
 
     <div class="card" data-type="love">
@@ -36,14 +36,19 @@
     </div>
   </div>
 
-  <div class="finalBtnContainer">
-    <button id="finalBtn" class="finalBtn">
-      If you saw everything… click here ❤️
-    </button>
-  </div>
+  <button id="finalBtn" class="finalBtn">
+    If you saw everything… click here ❤️
+  </button>
 </div>
 
-<!-- VALENTINE SCREEN -->
+<!-- POPUP -->
+<div class="popup" id="popupBox">
+  <div id="popupContent"></div>
+  <button class="close" onclick="closePopup()">Close 💖</button>
+</div>
+
+
+<!-- VALENTINE PAGE -->
 <div id="valentineScreen">
   <h1>Happy Valentine’s Day My Love ❤️</h1>
   <h2>Will you be my Valentine forever? 💍</h2>
@@ -53,12 +58,6 @@
   <button id="backBtn" class="backBtn">⬅ Go Back</button>
 
   <div id="emojiRain"></div>
-</div>
-
-<!-- POPUP -->
-<div class="popup" id="popupBox">
-  <div id="popupContent"></div>
-  <button id="closePopup">Close 💖</button>
 </div>
 
 <script src="script.js"></script>
