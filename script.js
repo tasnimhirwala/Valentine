@@ -7,7 +7,7 @@ function checkPassword() {
 
   if (input === correctPassword) {
     document.getElementById("passwordScreen").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
+    document.getElementById("mainContent").style.display = "flex"; // IMPORTANT FIX
 
     if (!heartsStarted) {
       startHearts();
@@ -130,17 +130,17 @@ function showHurrayPopup() {
 document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.getElementById("noBtn");
 
-  if (!noBtn) return;
+  if (noBtn) {
+    function triggerRun(e) {
+      e.preventDefault();
+      moveNoButton(noBtn);
+      showAngryEmoji(noBtn);
+    }
 
-  function triggerRun(e) {
-    e.preventDefault();
-    moveNoButton(noBtn);
-    showAngryEmoji(noBtn);
+    noBtn.addEventListener("mouseenter", triggerRun);
+    noBtn.addEventListener("touchstart", triggerRun);
+    noBtn.addEventListener("click", triggerRun);
   }
-
-  noBtn.addEventListener("mouseenter", triggerRun);  // desktop
-  noBtn.addEventListener("touchstart", triggerRun);  // mobile
-  noBtn.addEventListener("click", triggerRun);       // extra safety
 });
 
 function moveNoButton(btn) {
@@ -184,16 +184,15 @@ function startCuteEmojis() {
     setTimeout(() => emoji.remove(), 3000);
   }, 200);
 }
-// FINAL BUTTON FIX (WORKS ON MOBILE)
+
+/* ================= FINAL BUTTON (MOBILE SAFE) ================= */
 document.addEventListener("click", function (e) {
   if (e.target && e.target.id === "finalBtn") {
     openValentine();
   }
-});
-// BACK BUTTON
-document.addEventListener("click", function (e) {
+
   if (e.target && e.target.id === "backBtn") {
     document.getElementById("valentineScreen").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
+    document.getElementById("mainContent").style.display = "flex"; // IMPORTANT FIX
   }
 });
