@@ -32,7 +32,7 @@ function openPopup(type) {
     message = "Smile for me 😘";
     media = `
       <video autoplay controls playsinline>
-        <source src="funny.mp4" type="video/mp4">
+        <source src="Funny.mp4" type="video/mp4">
       </video>
     `;
   }
