@@ -248,41 +248,55 @@ h1 {
 }
 
 /* ================= MOBILE ================= */
-@media (max-width: 768px) {
-
-  body { background-attachment: scroll; }
-
-  h1 { font-size: 26px; }
+  @media (max-width: 768px) {
 
   .container {
+    display: flex;
     flex-direction: column;
-    gap: 25px;
+    align-items: center;   /* 🔥 THIS FIXES CENTERING */
+    justify-content: center;
+    width: 100%;
   }
 
   .card {
-    width: 85%;
-    max-width: 320px;
-    height: 160px;
-  }
-
-  .popup {
     width: 90%;
-    padding: 20px;
+    max-width: 340px;
+    margin: 0 auto;        /* 🔥 Extra centering safety */
   }
 
-  #valentineScreen h1 { font-size: 24px; }
-  #valentineScreen h2 { font-size: 18px; }
+  .finalBtnContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
-  .yesBtn,
-  .noBtn,
   .finalBtn {
-    width: 80%;
-    max-width: 280px;
+    width: 90%;
+    max-width: 340px;
   }
+   .backBtn {
+    width: 80%;
+    max-width: 260px;
+  }
+
 }
 
 /* ================= FADE ================= */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+.backBtn {
+  margin-top: 15px;
+  padding: 10px 25px;
+  border-radius: 30px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.backBtn:hover {
+  background: #ff2e63;
 }

@@ -190,3 +190,10 @@ document.addEventListener("click", function (e) {
     openValentine();
   }
 });
+// BACK BUTTON
+document.addEventListener("click", function (e) {
+  if (e.target && e.target.id === "backBtn") {
+    document.getElementById("valentineScreen").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+  }
+});
