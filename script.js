@@ -184,3 +184,9 @@ function startCuteEmojis() {
     setTimeout(() => emoji.remove(), 3000);
   }, 200);
 }
+// FINAL BUTTON FIX (WORKS ON MOBILE)
+document.addEventListener("click", function (e) {
+  if (e.target && e.target.id === "finalBtn") {
+    openValentine();
+  }
+});
