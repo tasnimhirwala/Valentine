@@ -1,14 +1,22 @@
+/* ================= GLOBAL ================= */
 body{
   margin:0;
   font-family:Segoe UI,sans-serif;
-  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("ourphoto.jpg");
-  background-size:cover;
-  background-position:center;
   color:white;
   overflow-x:hidden;
+  min-height:100vh;
+
+  background-image:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("ourphoto.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:scroll; /* important for mobile stability */
 }
 
-/* PASSWORD */
+/* ================= PASSWORD ================= */
 #passwordScreen{
   position:fixed;
   inset:0;
@@ -17,6 +25,7 @@ body{
   justify-content:center;
   align-items:center;
   background:linear-gradient(135deg,#ff5f7e,#ff2e63);
+  z-index:2000;
 }
 
 #passwordInput{
@@ -25,6 +34,7 @@ body{
   border:none;
   font-size:16px;
   text-align:center;
+  width:250px;
 }
 
 #enterBtn{
@@ -34,45 +44,68 @@ body{
   border-radius:30px;
   background:white;
   color:#ff2e63;
+  cursor:pointer;
 }
 
-/* MAIN */
+/* ================= MAIN ================= */
 #mainContent{
   display:none;
   flex-direction:column;
   align-items:center;
-  padding:60px 20px;
+  padding:70px 20px;
+  text-align:center;
+}
+
+h1{
+  margin-bottom:40px;
 }
 
 .container{
+  width:100%;
   display:flex;
-  gap:30px;
-  flex-wrap:wrap;
   justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:30px;
 }
 
 .card{
   width:240px;
   height:170px;
-  background:rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.15);
   border-radius:20px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   cursor:pointer;
+  text-align:center;
+  transition:0.2s ease;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card span{
+  font-size:40px;
+}
+
+.card h3{
+  margin-top:10px;
 }
 
 .finalBtn{
-  margin-top:40px;
+  margin-top:50px;
   padding:12px 30px;
   border-radius:40px;
   border:none;
   background:rgba(255,255,255,0.3);
   color:white;
+  cursor:pointer;
 }
 
-/* POPUP */
+/* ================= POPUP ================= */
 .popup{
   display:none;
   position:fixed;
@@ -80,70 +113,35 @@ body{
   left:50%;
   transform:translate(-50%,-50%);
   background:white;
-  padding:20px;
+  padding:25px;
   border-radius:20px;
   width:90%;
   max-width:380px;
   color:black;
   text-align:center;
+  z-index:3000;
 }
-
-/* ================= POPUP MEDIA FIX ================= */
 
 .popup video,
-.popup audio {
-  display: block;
-  margin: 20px auto;
-  border-radius: 15px;
+.popup audio{
+  display:block;
+  margin:20px auto;
+  width:100%;
+  max-width:360px;
+  border-radius:15px;
 }
 
-/* Desktop */
-.popup video {
-  width: 100%;
-  max-width: 380px;
-  height: auto;
-  max-height: 70vh;
-  object-fit: contain;
-}
-
-.popup audio {
-  display: block;
-  margin: 20px auto;
-  width: 100%;
-  max-width: 350px;
-}
-
-/* Mobile Fix */
-@media (max-width: 768px) {
-
-  .popup {
-    width: 95%;
-    padding: 20px;
-  }
-
-  .popup video {
-    width: 100%;
-    max-height: 55vh;
-    object-fit: contain;
-  }
-
-  .popup audio {
-    width: 100%;
-  }
-
-}
-
-
-#closePopup{
+.close{
   margin-top:10px;
   padding:8px 20px;
   border-radius:20px;
   border:none;
   background:#ff2e63;
   color:white;
+  cursor:pointer;
 }
 
-/* VALENTINE */
+/* ================= VALENTINE PAGE ================= */
 #valentineScreen{
   display:none;
   position:fixed;
@@ -152,50 +150,69 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("ourphoto.jpg");
+  padding:20px;
+
+  background-image:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("ourphoto.jpg");
+
   background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:scroll;
+
+  z-index:4000;
 }
 
-.yesBtn,.noBtn,.backBtn{
+.yesBtn,
+.noBtn,
+.backBtn{
   margin-top:15px;
   padding:10px 25px;
   border-radius:30px;
   border:none;
+  cursor:pointer;
 }
 
-.yesBtn{background:#ff2e63;color:white;}
-.noBtn{background:#333;color:white;}
-.backBtn{background:rgba(255,255,255,0.3);color:white;}
-
-#emojiRain{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
+.yesBtn{
+  background:#ff2e63;
+  color:white;
 }
 
-.emoji {
-  position: fixed;
-  top: -30px;
-  font-size: 24px;
-  animation: fallSmooth linear forwards;
-  pointer-events: none;
-  opacity: 0.9;
+.noBtn{
+  background:#333;
+  color:white;
 }
 
-@keyframes fallSmooth {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(110vh);
-    opacity: 0;
-  }
+.backBtn{
+  background:rgba(255,255,255,0.3);
+  color:white;
 }
 
-
+/* ================= MOBILE ================= */
 @media(max-width:768px){
-  .container{flex-direction:column;}
-  .card{width:90%;}
-  .finalBtn,.yesBtn,.noBtn,.backBtn{width:85%;}
+
+  .container{
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .card{
+    width:90%;
+    max-width:340px;
+  }
+
+  .finalBtn,
+  .yesBtn,
+  .noBtn,
+  .backBtn{
+    width:85%;
+    max-width:320px;
+  }
+
+  .popup video{
+    max-height:55vh;
+    object-fit:contain;
+  }
 }

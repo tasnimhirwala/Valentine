@@ -1,5 +1,4 @@
 const correctPassword = "041918";
-let heartsStarted = false;
 
 /* ================= PASSWORD ================= */
 document.getElementById("enterBtn").addEventListener("click", () => {
@@ -7,12 +6,7 @@ document.getElementById("enterBtn").addEventListener("click", () => {
 
   if (input === correctPassword) {
     document.getElementById("passwordScreen").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
-
-    if (!heartsStarted) {
-      startHearts();
-      heartsStarted = true;
-    }
+    document.getElementById("mainContent").style.display = "flex";
   } else {
     alert("Wrong date 😢 Try again!");
   }
@@ -87,21 +81,6 @@ function closePopup() {
   document.getElementById("popupContent").innerHTML = "";
 }
 
-/* ================= FLOATING HEARTS ================= */
-function startHearts() {
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
-    heart.style.fontSize = (18 + Math.random() * 25) + "px";
-
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 7000);
-  }, 400);
-}
-
 /* ================= FINAL BUTTON ================= */
 document.getElementById("finalBtn").addEventListener("click", () => {
   document.getElementById("mainContent").style.display = "none";
@@ -111,18 +90,12 @@ document.getElementById("finalBtn").addEventListener("click", () => {
 /* ================= BACK BUTTON ================= */
 document.getElementById("backBtn").addEventListener("click", () => {
   document.getElementById("valentineScreen").style.display = "none";
-  document.getElementById("mainContent").style.display = "block";
-
-  // Stop emoji rain
-  clearInterval(emojiInterval);
-  emojiInterval = null;
-  document.getElementById("emojiRain").innerHTML = "";
+  document.getElementById("mainContent").style.display = "flex";
 });
 
 /* ================= YES BUTTON ================= */
 document.getElementById("yesBtn").addEventListener("click", () => {
   showHurrayPopup();
-  startEmojiRain();
 });
 
 function showHurrayPopup() {
@@ -146,7 +119,9 @@ function showHurrayPopup() {
 /* ================= NO BUTTON ================= */
 const noBtn = document.getElementById("noBtn");
 
-function moveNoButton() {
+function moveNoButton(e) {
+  e.preventDefault();
+
   const x = Math.random() * (window.innerWidth - 150);
   const y = Math.random() * (window.innerHeight - 100);
 
@@ -173,29 +148,3 @@ function showAngryEmoji(x, y) {
 noBtn.addEventListener("mouseenter", moveNoButton);
 noBtn.addEventListener("touchstart", moveNoButton);
 noBtn.addEventListener("click", moveNoButton);
-
-/* ================= EMOJI RAIN ================= */
-let emojiInterval = null;
-
-function startEmojiRain() {
-  const container = document.getElementById("emojiRain");
-
-  // Prevent multiple intervals
-  if (emojiInterval) return;
-
-  emojiInterval = setInterval(() => {
-    const emoji = document.createElement("div");
-    emoji.classList.add("emoji");
-    emoji.innerHTML = "💖";
-
-    emoji.style.left = Math.random() * 100 + "vw";
-    emoji.style.animationDuration = (3 + Math.random() * 2) + "s";
-
-    container.appendChild(emoji);
-
-    setTimeout(() => {
-      emoji.remove();
-    }, 5000);
-
-  }, 400); // slower = smoother
-}
