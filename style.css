@@ -207,6 +207,13 @@ h1 {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  .emoji {
+  position: fixed;
+  bottom: -20px;
+  font-size: 28px;
+  animation: floatUp 4s linear forwards;
+  pointer-events: none;
+}
 }
 
 /* ================= MOBILE ================= */
