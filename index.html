@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="passwordScreen">
+  <h2>Enter Our Special Date 💕</h2>
+  <input type="password" id="passwordInput" placeholder="DDMMYYYY">
+  <button onclick="checkPassword()">Enter</button>
+</div>
+
+<!-- MAIN CONTENT (HIDDEN FIRST) -->
+<div id="mainContent" style="display: none;">
+
+  <h1>Open When... 💌</h1>
+
+  <div class="container">
+
+    <div class="card" onclick="openPopup('sad')">
+      <span>💔</span>
+      <h3>When you're sad</h3>
+    </div>
+
+    <div class="card" onclick="openPopup('sleepMotivation')">
+      <span>🔥</span>
+      <h3>Peaceful sleep & motivation</h3>
+    </div>
+
+    <div class="card" onclick="openPopup('love')">
+      <span>❤️</span>
+      <h3>When you doubt my love</h3>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="popup" id="popupBox">
+  <div id="popupContent"></div>
+  <button class="close" onclick="closePopup()">Close 💖</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+    
